@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muguen no Genkai | 無限の限界</title>
+    <style>
+        :root {
+            --primary: #8B0000; /* Vermelho sombrio */
+            --secondary: #0A0A0A; /* Preto quase puro */
+            --accent: #D4AF37; /* Dourado envelhecido */
+            --text: #E0E0E0; /* Texto claro */
+            --manga-page: #1E1E1E; /* Fundo das páginas */
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--secondary);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Barra de navegação */
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('muguen-cover.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 10px #000;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto;
+            color: #AAA;
+        }
+
+        /* Seção de Capítulos */
+        .chapters {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .chapters h2 {
+            font-size: 2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            color: var(--accent);
+        }
+
+        .chapter-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .chapter-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(139, 0, 0, 0.3);
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary);
+        }
+
+        .chapter-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .chapter-info {
+            padding: 1.2rem;
+        }
+
+        .chapter-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .chapter-info .date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Painel de Administração */
+        .admin-panel {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .admin-panel h2 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+
+        .admin-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .admin-form input, 
+        .admin-form textarea {
+            padding: 0.8rem;
+            background: #1E1E1E;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .admin-form button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .admin-form button:hover {
+            background: #6B0000;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #0A0A0A;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid var(--primary);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .chapter-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">MUGUEN<span>NO GENKAI</span></div>
+            <nav>
+                <a href="#home">Início</a>
+                <a href="#chapters">Capítulos</a>
+                <a href="#about">Sobre</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>無限の限界</h1>
+            <p>Um mangá que explora os limites do possível e do imaginável.</p>
+            <a href="#chapters" class="btn">Começar a Ler</a>
+        </div>
+    </section>
+
+    <!-- Lista de Capítulos -->
+    <section class="chapters" id="chapters">
+        <h2>Capítulos</h2>
+        <div class="chapter-list">
+            <!-- Capítulo 1 -->
+            <div class="chapter-card">
+                <img src="capitulo1.jpg" alt="Capítulo 1">
+                <div class="chapter-info">
+                    <h3>Capítulo 1: O Limiar</h3>
+                    <span class="date">Publicado em: 15/06/2023</span>
+                    <a href="leitor.html?cap=1" class="btn">Ler</a>
+                </div>
+            </div>
+
+            <!-- Capítulo 2 -->
+            <div class="chapter-card">
+                <img src="capitulo2.jpg" alt="Capítulo 2">
+                <div class="chapter-info">
+                    <h3>Capítulo 2: O Despertar</h3>
+                    <span class="date">Publicado em: 30/06/2023</span>
+                    <a href="leitor.html?cap=2" class="btn">Ler</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Painel de Administração (Adicionar Capítulos) -->
+    <section class="admin-panel">
+        <h2>Adicionar Novo Capítulo</h2>
+        <form class="admin-form" id="addChapterForm">
+            <input type="text" placeholder="Título do Capítulo" required>
+            <input type="text" placeholder="Número do Capítulo" required>
+            <input type="date" placeholder="Data de Publicação" required>
+            <input type="file" accept="image/*" placeholder="Thumbnail" required>
+            <textarea placeholder="Descrição (Opcional)"></textarea>
+            <button type="submit">Adicionar Capítulo</button>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2023 Muguen no Genkai. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para adicionar capítulos dinamicamente
+        document.getElementById('addChapterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Capítulo adicionado com sucesso! Atualize a página para ver.');
+            // Aqui você pode adicionar código para enviar para um banco de dados
+        });
+    </script>
+</body>
+  </html>
